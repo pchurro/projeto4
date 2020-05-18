@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="annyang.min.js"></script>
+    <script src="microphone.js" charset="utf-8"></script>
+    <!-- <script async src="js/opencv.js" onload="openCvReady();"></script> -->
+    <script src="js/utils.js"></script>
+    <script src="math.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery-3.5.0.min.js" charset="utf-8"></script>
+    <script src="building.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+    <script src="pizzicato.js"></script>
+    <script src="melody.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body onload="testSilhouette()">
+
+    <canvas id="canvasSilhouette">
+    </canvas>
+<a id="download" download="myImage.jpg" onclick="download_img(this);" visibility="visible">DOWNLOAD</a>
+<img id="play" src="/images/play.png" onclick="playMusic()" visibility="visible"></img>
+</body>
+</html>

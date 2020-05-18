@@ -1,0 +1,115 @@
+@font-face {
+  font-family: Montserrat-Black;
+  src: url(fonts/Montserrat-Black.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Light;
+  src: url(fonts/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url(fonts/Montserrat-Medium.ttf);
+}
+
+h1{
+    font-family: Montserrat-Black;
+}
+
+#int_title{
+    font-family:Montserrat-Bold;
+}
+
+#int_p{
+    font-family:Montserrat-Light;
+}
+
+#startButton{
+    font-family:Montserrat-Medium;
+}
+
+#cameras{
+    visibility: hidden;
+}
+
+#show_video{
+    z-index: 1;
+    position: absolute;
+    top:0;
+}
+
+#canvasSilhouette{
+    /* background-color: grey; */
+    position: absolute;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+#download{
+    visibility: hidden;
+    position: absolute;
+    top:700px;
+    left:50%;
+    transform:translateX(-50%);
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+body{
+    background-color: #f0f0f0;
+    font-family: Montserrat-Medium;
+    overflow-x: hidden;
+}
+
+h1{
+    font-size:6vw;
+    display:block;
+    position:absolute;
+    top:10%;
+    left:10%;
+}
+
+#instructions{
+    display:block;
+    width:25%;
+    position: absolute;
+    top:50%;
+    left:10%;
+}
+
+#startButton{
+    font-size:2vw;
+    display:block;
+    position: absolute;
+    top:50%;
+    right:10%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#play{
+    visibility: hidden;
+    position: absolute;
+    top:600px;
+    left:50%;
+    transform:translateX(-50%);
+    width:3%;
+    cursor:pointer;
+}
+
+#unsucessful{
+    visibility: hidden;
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-decoration: underline;
+    cursor: pointer;
+    transform:translate(-50%,-50%);
+}

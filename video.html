@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="annyang.min.js"></script>
+    <script src="microphone.js" charset="utf-8"></script>
+    <script async src="js/opencv.js" onload="openCvReady();"></script>
+    <script src="js/utils.js"></script>
+    <script src="math.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery-3.5.0.min.js" charset="utf-8"></script>
+    <script src="building.js" type="text/javascript" charset="utf-8"></script>
+    <script src="pizzicato.js"></script>
+    <script src="melody.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body style="background-color:white">
+<div id="cameras">
+<video id="cam_input" height="480" width="640"></video>
+<canvas id="canvas_output"></canvas>
+</div>
+
+<video id="show_video" autoplay src="video.mp4" width="100%" height="100%" oncanplay="start()" onended="checkVidEnd()"></video>
+
+<canvas id="canvasSilhouette">
+</canvas>
+
+<span id="unsucessful" onclick="tryAgain()">EXPERIMENT FAILED. CLICK HERE TO TRY AGAIN</span>
+
+<a id="download" download="myImage.jpg" onclick="download_img(this);">DOWNLOAD</a>
+<img id="play" src="images/play.png" onclick="playMusic()"></img>
+</body>
+
+<script src="script.js" charset="utf-8"></script>
+</html>
