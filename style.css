@@ -1,37 +1,37 @@
 @font-face {
-  font-family: Montserrat-Black;
-  src: url(fonts/Montserrat-Black.ttf);
+  font-family: Blatant-Bold;
+  src: url(fonts/Blatant-Bold.otf);
 }
 
 @font-face {
-  font-family: Montserrat-Light;
-  src: url(fonts/Montserrat-Light.ttf);
+  font-family: Blatant-BoldItalic;
+  src: url(fonts/Blatant-BoldItalic.otf);
 }
 
 @font-face {
-  font-family: Montserrat-Bold;
-  src: url(fonts/Montserrat-Bold.ttf);
+  font-family: Blatant;
+  src: url(fonts/Blatant.otf);
 }
 
 @font-face {
-  font-family: Montserrat-Medium;
-  src: url(fonts/Montserrat-Medium.ttf);
+  font-family: Blatant-Italic;
+  src: url(fonts/Blatant-Italic.otf);
 }
 
 h1{
-    font-family: Montserrat-Black;
+    font-family: Blatant-Bold;
 }
 
 #int_title{
-    font-family:Montserrat-Bold;
+    font-family:Blatant-Bold;
 }
 
 #int_p{
-    font-family:Montserrat-Light;
+    font-family:Blatant;
 }
 
 #startButton{
-    font-family:Montserrat-Medium;
+    font-family:Blatant-Bold;
 }
 
 #cameras{
@@ -47,25 +47,28 @@ h1{
 #canvasSilhouette{
     /* background-color: grey; */
     position: absolute;
-    top:10%;
-    left:50%;
+    top:25%;
+    left:75%;
     transform:translateX(-50%);
 }
 
+
 #download{
-    visibility: hidden;
+    display:none;
     position: absolute;
-    top:700px;
+    top:200%;
     left:50%;
     transform:translateX(-50%);
     text-decoration: underline;
     cursor:pointer;
+    font-family: Blatant;
 }
 
 body{
     background-color: #f0f0f0;
-    font-family: Montserrat-Medium;
+    font-family: Blatant;
     overflow-x: hidden;
+    cursor:none;
 }
 
 h1{
@@ -77,31 +80,35 @@ h1{
 }
 
 #instructions{
-    display:block;
-    width:25%;
+    visibility:visible;
     position: absolute;
-    top:50%;
-    left:10%;
+    z-index: 1;
+    width: 54%;
+    right:-55%;
+    top:-1%;
+    transition: right, 0.5s;
 }
 
 #startButton{
     font-size:2vw;
     display:block;
     position: absolute;
-    top:50%;
-    right:10%;
+    top:85%;
+    right:7%;
     text-decoration: underline;
-    cursor: pointer;
 }
 
 #play{
-    visibility: hidden;
+    /* visibility: hidden; */
+    font-family: Blatant-Bold;
+
     position: absolute;
-    top:600px;
-    left:50%;
-    transform:translateX(-50%);
-    width:3%;
+    font-size:2.5vw;
+    top:50%;
+    left:25%;
+    transform:translate(-50%,-50%);
     cursor:pointer;
+    text-decoration: underline;
 }
 
 #unsucessful{
@@ -112,4 +119,143 @@ h1{
     text-decoration: underline;
     cursor: pointer;
     transform:translate(-50%,-50%);
+}
+#circulos {
+    grid-area: 4/5/span 2/span 2;
+
+}
+#circulo1 {
+    transform-origin: center;
+    position: absolute;
+ }
+#circulo2 {
+    position: absolute;
+    transform-origin: center;
+    width:500px;
+    height:500px;
+    transition: width, height, grid, 0.5s;
+
+}
+
+#circulos:hover > #circulo2{
+    transform: scale(1.6);
+    transition: width, height, grid,0.5s;
+}
+
+
+
+#content {
+    display: grid;
+    grid-template-rows: repeat(12,60px);
+    grid-template-columns: repeat(12,1fr);
+}
+
+#infodiv{
+    grid-area: 1/6/span 10/span 10;
+    display: flex;
+    margin-top:-1%;
+    margin-right:10%;
+    margin-left: 10%;
+}
+
+#info {
+    position: absolute;
+    right: 3%;
+    top:3%;
+    font-family:Blatant-Bold;
+    font-size: 30pt;
+    margin:0;
+}
+
+#close {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    right: 3%;
+    top:3%;
+    font-family:Blatant-Bold;
+    font-size: 30pt;
+    margin:0;
+}
+
+#downtown {
+    position: absolute;
+    left: 3%;
+    top:3%;
+    font-family:Blatant-Bold;
+    font-size: 30pt;
+    margin:0;
+}
+.circle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 3;
+    mix-blend-mode: difference;
+}
+
+#ready {
+    position: absolute;
+    left: 43%;
+    top:50%;
+    font-family:Blatant-Bold;
+    font-size: 50pt;
+    margin:0;
+    color: rgba(255,255,255,0);
+    z-index: 1;
+    transition: color 0.5s;
+}
+
+#circulos:hover #ready {
+    color: rgba(255,255,255,1);
+    transition: color 0.5s;
+}
+
+#poster{
+    display:none;
+    border:solid 1px black;
+    position: absolute;
+    top:80%;
+    left:50%;
+    transform:translateX(-50%);
+
+    margin-bottom:20%;
+}
+
+form{
+    font-family:Blatant;
+    font-size:1.5vw;
+    position: absolute;
+    top:60%;
+    left:75%;
+    transform:translateX(-50%);
+    width:30%;
+}
+
+label{
+    width:25%;
+}
+
+input{
+    background-color:black;
+    border:1px solid black;
+    width:70%;
+    color:white;
+    float:right;
+}
+
+#button{
+    font-size:1.7vw;
+    cursor:pointer;
+    text-decoration: underline;
+    float:right;
+}
+
+#sizes{
+    float:right;
+    width:60%;
+}
+
+#result{
+    display:none;
 }

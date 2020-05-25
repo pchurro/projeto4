@@ -21,7 +21,22 @@
 
     <canvas id="canvasSilhouette">
     </canvas>
-<a id="download" download="myImage.jpg" onclick="download_img(this);" visibility="visible">DOWNLOAD</a>
-<img id="play" src="/images/play.png" onclick="playMusic()" visibility="visible"></img>
+<a id="download" download="myImage.jpg" onclick="download_img(this);">DOWNLOAD</a>
+<a id="play" src="/images/play.png" onclick="playMusic()">LISTEN TO YOUR MELODY</a>
+
+<form>
+    <label>GIVE A TITLE</label><input type="text" id="poster_title"></input><br>
+    <label>YOUR NAME</label><input type="text" id="poster_name"></input><br>
+    <label>SILHOUETTE SIZE</label>
+        <select id="sizes">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+        </select><br>
+    <span id="button" onclick="generatePoster()">GENERATE POSTER</span>
+</form>
+
+<canvas id="poster">
+</canvas>
 </body>
 </html>

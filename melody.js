@@ -184,3 +184,17 @@ function check() {
 
 
 }
+
+function download() {
+  var blob = new Blob(recordedChunks, {
+    type: 'audio/webm'
+  });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  document.body.appendChild(a);
+  a.style = 'display: none';
+  a.href = url;
+  a.download = 'test.wav';
+  a.click();
+  window.URL.revokeObjectURL(url);
+}

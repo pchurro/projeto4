@@ -16,6 +16,7 @@
 </head>
 
 <body style="background-color:white">
+    <img id="circle" class="circle" src="./images/rato.png"></img>
 <div id="cameras">
 <video id="cam_input" height="480" width="640"></video>
 <canvas id="canvas_output"></canvas>
@@ -23,13 +24,31 @@
 
 <video id="show_video" autoplay src="video.mp4" width="100%" height="100%" oncanplay="start()" onended="checkVidEnd()"></video>
 
-<canvas id="canvasSilhouette">
-</canvas>
 
 <span id="unsucessful" onclick="tryAgain()">EXPERIMENT FAILED. CLICK HERE TO TRY AGAIN</span>
 
+<div id="result">
+    <canvas id="canvasSilhouette">
+    </canvas>
 <a id="download" download="myImage.jpg" onclick="download_img(this);">DOWNLOAD</a>
-<img id="play" src="images/play.png" onclick="playMusic()"></img>
+<a id="play" src="/images/play.png" onclick="playMusic()" visibility="visible">LISTEN TO YOUR MELODY</a>
+
+<form>
+    <label>GIVE A TITLE</label><input type="text" id="poster_title"></input><br>
+    <label>YOUR NAME</label><input type="text" id="poster_name"></input><br>
+    <label>SILHOUETTE SIZE</label>
+        <select id="sizes">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+        </select><br>
+    <span id="button" onclick="generatePoster()">GENERATE POSTER</span>
+</form>
+
+<canvas id="poster">
+</canvas>
+</div>
+
 </body>
 
 <script src="script.js" charset="utf-8"></script>

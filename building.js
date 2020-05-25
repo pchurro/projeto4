@@ -216,7 +216,7 @@ function createWindows(){
 function resizeCanvas(){
     var canvas = document.getElementById("canvasSilhouette");
     var ctx = canvas.getContext("2d");
-    canvas.setAttribute("height", 500);
+    canvas.setAttribute("height", 250);
     var canvasWidth = function(){
         var maxWidth=0;
         for (var i=0;i<buildings.length;i++){
@@ -225,9 +225,9 @@ function resizeCanvas(){
         return maxWidth;
     }
 
-    canvas.setAttribute("width", canvasWidth()/2);
+    canvas.setAttribute("width", canvasWidth()/4);
 
-    ctx.scale(0.5, 0.5);
+    ctx.scale(0.25, 0.25);
 }
 
 function getRndInteger(min, max) {
@@ -252,8 +252,80 @@ function testSilhouette(){
 
 }
 
+
+function generatePoster(){
+
+    var cWidth = 595;
+    var cHeight = 824
+    var c= document.getElementById("poster");
+
+    c.setAttribute("width",cWidth);
+    c.setAttribute("height",cHeight);
+    c.setAttribute("style","display:block;");
+
+    document.getElementById("download").setAttribute("style","display:block;");
+
+    var name=document.getElementById("poster_name").value;
+    var title=document.getElementById("poster_title").value;
+    var size=document.getElementById("sizes");
+    var sizeValue = size.options[size.selectedIndex].value;
+
+    if (sizeValue=="Small") var scale=2;
+    if (sizeValue=="Medium") var scale=1.5;
+    if (sizeValue=="Large") var scale=1;
+
+    var sourceCanvas=document.getElementById("canvasSilhouette");
+    var ctx=c.getContext('2d');
+
+    ctx.drawImage(sourceCanvas,cWidth/2 - (sourceCanvas.width/scale)/2,cHeight/2 - (sourceCanvas.height/scale)/2,sourceCanvas.width/scale,sourceCanvas.height/scale);
+    console.log(cWidth/2 - (sourceCanvas.width/scale)/2);
+    ctx.textAlign = "center";
+    ctx.font = "60px Blatant-Bold";
+    ctx.fillText(title.toUpperCase(),cWidth/2,cHeight/6);
+
+    ctx.font = "20px Blatant";
+    ctx.fillText(name.toUpperCase(),cWidth/4, 7*cHeight/8);
+
+    var d = new Date();
+    var date = d.getDate() + "/0" + d.getMonth() + "/" + d.getFullYear();
+
+    ctx.fillText(date.toUpperCase(),3*cWidth/4, 7*cHeight/8);
+
+    var finalText="If everyone is so busy doing something, how can we achieve a perfect world? We start confusing work with fun and we think wealth is the best state of living. It may take time, but we can all achieve a better world. We just have to stop, and feel what’s around us.  Your city reflects you, make it a downtown! ";
+    wrapText(ctx,finalText.toUpperCase(),cWidth/2,cHeight- cHeight/12,390,12,"Blatant");
+
+    ctx.globalCompositeOperation = 'destination-over';
+    // Now draw!
+    ctx.fillStyle = "#f0f0f0";
+    ctx.fillRect(0, 0, cWidth, cHeight);
+
+}
+
+function wrapText(context, text, x, y, maxWidth, fontSize, fontFace) {
+    var words = text.split(' ');
+    var line = '';
+    var lineHeight = fontSize+2;
+
+    context.font = fontSize + "px " + fontFace;
+    context.textAlign="center";
+
+    for (var n = 0; n < words.length; n++) {
+        var testLine = line + words[n] + ' ';
+        var metrics = context.measureText(testLine);
+        var testWidth = metrics.width;
+        if (testWidth > maxWidth) {
+            context.fillText(line, x, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+        } else {
+            line = testLine;
+        }
+    }
+    context.fillText(line, x, y);
+}
+
 download_img = function(el) {
-    var canvas = document.getElementById("canvasSilhouette");
+    var canvas = document.getElementById("poster");
   var image = canvas.toDataURL("image/jpg");
   el.href = image;
 };
